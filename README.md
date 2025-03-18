@@ -2,13 +2,9 @@
 
 Este projeto é uma solução para o desafio técnico da LuizaLabs, que consiste em processar um arquivo de pedidos desnormalizado e transformá-lo em um formato JSON normalizado. A aplicação é composta por um **backend** em FastAPI e um **frontend** em React, permitindo que os usuários façam upload de arquivos e visualizem o JSON processado.
 
----
-
 ## Tecnologias Utilizadas
 
 O backend foi desenvolvido em **Python** com **FastAPI** para a API REST, utilizando **Pydantic** para validação de dados e **Uvicorn** como servidor. Para o frontend, foi usado **React** com **Material-UI (MUI)** para a interface, **TypeScript** para tipagem estática e **Axios** para chamadas à API. A aplicação é containerizada com **Docker** e orquestrada com **Docker Compose**.
-
----
 
 ## Como Executar o Projeto
 
@@ -16,8 +12,6 @@ O backend foi desenvolvido em **Python** com **FastAPI** para a API REST, utiliz
 
 - **Docker**: [Instruções para instalar o Docker](https://docs.docker.com/get-docker/)
 - **Docker Compose**: [Instruções para instalar o Docker Compose](https://docs.docker.com/compose/install/)
-
----
 
 ### **1. Usando Docker (Recomendado)**
 
@@ -51,8 +45,6 @@ O backend foi desenvolvido em **Python** com **FastAPI** para a API REST, utiliz
    docker-compose down
    ```
 
----
-
 ## Como Usar a Aplicação
 
 1. **Acesse o Frontend**:
@@ -68,8 +60,6 @@ O backend foi desenvolvido em **Python** com **FastAPI** para a API REST, utiliz
 
 4. **Resetar**:
    - Clique em "Resetar" para limpar o JSON e fazer um novo upload.
-
----
 
 ## Endpoints da API (Backend)
 
@@ -113,8 +103,6 @@ O backend foi desenvolvido em **Python** com **FastAPI** para a API REST, utiliz
     "detail": "O arquivo deve ser um .txt"
   }
   ```
-
----
 
 ## Testes
 
