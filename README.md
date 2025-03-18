@@ -27,7 +27,7 @@ O backend foi desenvolvido em **Python** com **FastAPI** para a API REST, utiliz
 2. **Construa e rode os containers**:
 
    ```bash
-   docker-compose up --build
+   sudo docker-compose up --build
    ```
 
    Isso vai:
