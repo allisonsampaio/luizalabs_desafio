@@ -107,12 +107,45 @@ O backend foi desenvolvido em **Python** com **FastAPI** para a API REST, utiliz
 ## Testes
 
 ### **Backend**:
-- Para rodar os testes do backend, execute:
+Para rodar os testes do backend, siga os seguintes passos:
 
-  ```bash
-  cd app
-  pytest
-  ```
+1. **Crie e ative o ambiente virtual**:
+   Se ainda não tiver criado o ambiente virtual, faça isso com o comando:
+
+   ```bash
+   python3 -m venv venv
+   ```
+
+   Ative o ambiente virtual:
+
+   - No Linux/Mac:
+
+     ```bash
+     source venv/bin/activate
+     ```
+
+   - No Windows:
+
+     ```bash
+     .\venv\Scripts\activate
+     ```
+
+2. **Instale as dependências**:
+   Com o ambiente virtual ativado, instale os pacotes necessários com:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Execute os testes**:
+   Agora, para rodar os testes do backend, basta executar o comando:
+
+   ```bash
+   cd app
+   pytest
+   ```
+
+Certifique-se de estar no ambiente virtual e com as dependências instaladas para garantir que os testes sejam executados corretamente.
 
 #### Testes Implementados:
 
