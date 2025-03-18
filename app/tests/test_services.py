@@ -1,6 +1,8 @@
 import pytest
 from app.services import process_file
-from app.models import UserOrders, Order, Product
+from app.models.user_orders import UserOrders
+from app.models.order import Order
+from app.models.product import Product
 
 def test_process_file():
     """

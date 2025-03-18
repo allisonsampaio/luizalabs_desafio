@@ -1,6 +1,8 @@
 from typing import List
-from .models import UserOrders, Order, Product
-from .utils import parse_line
+from app.models.user_orders import UserOrders
+from app.models.order import Order
+from app.models.product import Product
+from app.utils.file_utils import parse_line
 import logging
 
 logging.basicConfig(level=logging.INFO)

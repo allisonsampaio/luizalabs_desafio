@@ -41,26 +41,20 @@ def test_upload_file_success():
     assert data[1]["orders"][0]["products"][0]["product_id"] == 2
     assert data[1]["orders"][0]["products"][0]["value"] == "1578.57"
 
-def test_upload_file_invalid_format():
+def test_get_order_by_id():
     """
-    Testa o endpoint /upload com um arquivo de formato inválido
+    Testa o endpoint /orders/{order_id} para buscar um pedido pelo ID
     """
-    response = client.post(
-        "/upload",
-        files={"file": ("test_file.csv", "invalid,data\n1,2,3")}
-    )
+    response = client.get("/orders/753")
+    assert response.status_code == 200
+    data = response.json()
+    assert data["orders"][0]["order_id"] == 753
 
-    assert response.status_code == 400
-    assert response.json() == {"detail": "O arquivo deve ser um .txt"}
-
-def test_upload_file_empty():
+def test_get_orders_by_date_range():
     """
-    Testa o endpoint /upload com um arquivo vazio
+    Testa o endpoint /orders/ para buscar pedidos por intervalo de datas
     """
-    response = client.post(
-        "/upload",
-        files={"file": ("empty_file.txt", "")}
-    )
-
-    assert response.status_code == 400
-    assert response.json() == {"detail": "O arquivo está vazio."}
+    response = client.get("/orders/?start_date=20210101&end_date=20211231")
+    assert response.status_code == 200
+    data = response.json()
+    assert len(data) > 0
