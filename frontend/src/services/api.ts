@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://backend:8000';
+const API_BASE_URL = 'http://localhost:8000';
 
 export const processFile = async (file: File) => {
   const formData = new FormData();
@@ -12,5 +12,20 @@ export const processFile = async (file: File) => {
     },
   });
 
+  return response.data;
+};
+
+export const getOrderById = async (orderId: number) => {
+  const response = await axios.get(`${API_BASE_URL}/orders/${orderId}`);
+  return response.data;
+};
+
+export const getOrdersByDateRange = async (startDate: string, endDate: string) => {
+  const response = await axios.get(`${API_BASE_URL}/orders/`, {
+    params: {
+      start_date: startDate,
+      end_date: endDate,
+    },
+  });
   return response.data;
 };

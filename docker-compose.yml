@@ -11,6 +11,9 @@ services:
       - ./app:/app/app
     environment:
       - PYTHONUNBUFFERED=1
+      - MONGO_URI=mongodb://mongo:27017/
+    depends_on:
+      - mongo
     restart: unless-stopped
 
   frontend:
@@ -22,3 +25,14 @@ services:
     depends_on:
       - backend
     restart: unless-stopped
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    restart: unless-stopped
+
+volumes:
+  mongo-data:

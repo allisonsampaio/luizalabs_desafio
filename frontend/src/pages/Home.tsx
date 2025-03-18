@@ -3,6 +3,8 @@ import { Container, Typography, Paper, Box } from '@mui/material';
 import FileUploader from '../components/FileUploader';
 import JsonViewer from '../components/JsonViewer';
 import ActionButtons from '../components/ActionButtons';
+import OrderSearchById from '../components/OrderSearchById';
+import OrderSearchByDateRange from '../components/OrderSearchByDateRange';
 import { processFile } from '../services/api';
 
 const Home: React.FC = () => {
@@ -59,11 +61,12 @@ const Home: React.FC = () => {
   return (
     <Container maxWidth="md">
       <Typography variant="h4" component="h1" gutterBottom align="center" sx={{ marginTop: 4 }}>
-        Processador de Arquivos
+        Processador de Arquivos e Consultas
       </Typography>
 
       <Paper elevation={3} sx={{ padding: 3, marginTop: 2 }}>
-        <Box display="flex" flexDirection="column" gap={2}>
+        <Box display="flex" flexDirection="column" gap={3}>
+          <Typography variant="h6">Upload de Arquivo</Typography>
           <FileUploader onFileChange={handleFileChange} />
           <ActionButtons
             onProcess={handleSubmit}
@@ -72,6 +75,12 @@ const Home: React.FC = () => {
             isFileSelected={!!file}
             isJsonGenerated={!!jsonData}
           />
+
+          <Typography variant="h6">Consultar Pedido por ID</Typography>
+          <OrderSearchById onSearch={setJsonData} />
+
+          <Typography variant="h6">Consultar Pedidos por Intervalo de Datas</Typography>
+          <OrderSearchByDateRange onSearch={setJsonData} />
         </Box>
       </Paper>
 
